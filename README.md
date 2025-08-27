@@ -18,8 +18,7 @@ For example, in python (macOS / Linux) write in the terminal:
 
 ## How to use the tool
 You can use the entire tool by running the notebook:
-- notebooks/Schedule Generation Module.ipynb for Module 1, to create schedules for an electric LCV fleet
-- notebooks/optimisation Module.ipynb for Module 2, to run the optimisation model
+- notebooks/Schedule Generation Module.ipynb to create schedules for an electric LCV fleet
 
 ## Configurations
 
