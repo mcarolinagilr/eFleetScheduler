@@ -5,6 +5,7 @@ from enum import Enum
 class scheduletype(Enum):
     Typea = 1
     Typeb = 2
+    Typec = 3
 
 class vehicletype(Enum):
     Renault = 1
@@ -96,7 +97,25 @@ class ScheduleConfig:
             self.ret_dev_we = 0.5  # std deviation return time weekday
 
 
-            self.prob_emergency = 0.02                                       
+            self.prob_emergency = 0.02
+        
+        if schedule_type == schedule_type.Typec:
+            
+            #continuous schedule (with no stops in the middle of the day)
+            self.dep_mean_wd = sch_config["Costum Schedule"]["average departure weekday"]  # mean departure time weekday
+            self.dep_dev_wd = sch_config["Costum Schedule"]["std deviation departure weekday"]  # std deviation departure time weekday
+            self.ret_mean_wd = sch_config["Costum Schedule"]["average return weekday"]  # mean return time weekday
+            self.ret_dev_wd = sch_config["Costum Schedule"]["std deviation return weekday"]  # std deviation return time weekday
+
+            self.dep_mean_we = sch_config["Costum Schedule"]["average departure weekend"]  # mean departure time weekend
+            self.dep_dev_we = sch_config["Costum Schedule"]["std deviation departure weekend"]  # std deviation departure time weekend
+            self.ret_mean_we = sch_config["Costum Schedule"]["average return weekend"]  # mean return time weekend
+            self.ret_dev_we = sch_config["Costum Schedule"]["std deviation return weekend"]  # std deviation return time weekend
+
+            self.min_dep = sch_config["Costum Schedule"]["minimum departure"]
+            self.max_dep = sch_config["Costum Schedule"]["maximum departure"]
+            self.min_return_hour = sch_config["Costum Schedule"]["minimum return"]  # Return hour must be bigger or equal to this value
+            self.max_return_hour = sch_config["Costum Schedule"]["maximum return"]  # Return hour must be smaller or equal to this value                                        
     
     
 class VehicleConfig:
