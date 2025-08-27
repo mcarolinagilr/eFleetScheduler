@@ -6,7 +6,7 @@ import datetime as dt
 import time
 import os
 
-from schedule_configure import ScheduleConfig, scheduletype, vehicletype, VehicleConfig, CompanyConfig, companytype
+from .schedule_configure import ScheduleConfig, scheduletype, vehicletype, VehicleConfig, CompanyConfig, companytype
 
 
 class ScheduleGenerator:

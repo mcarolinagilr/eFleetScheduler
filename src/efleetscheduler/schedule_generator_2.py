@@ -7,8 +7,8 @@ import pandas as pd
 import time
 import os
 
-from schedule_generator_1 import ScheduleGenerator
-from schedule_configure import scheduletype, vehicletype, companytype
+from .schedule_generator_1 import ScheduleGenerator
+from .schedule_configure import scheduletype, vehicletype, companytype
 
 
 
