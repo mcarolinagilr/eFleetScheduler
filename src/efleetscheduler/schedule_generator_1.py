@@ -521,7 +521,7 @@ class ScheduleGenerator:
 
         return ev_schedule
 
-    def generate_typec_schedule(self):
+    def generate_typec(self):
 
         # make DataFrame and a date range, from start to end
         ev_schedule = pd.DataFrame({
