@@ -11,7 +11,7 @@ __author__ = "Carolina Gil Ribeiro"
 try:
     __version__ = _pkg_version("efleetscheduler")
 except Exception:  # during editable installs/builds
-    __version__ = "1.0.1"
+    __version__ = "1.0.2"
 
 # We export two *modules* and two *symbols*
 __all__ = [
