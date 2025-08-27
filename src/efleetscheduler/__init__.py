@@ -4,7 +4,7 @@ eFleetScheduler - Electric Fleet Scheduling Tool
 
 # src/efleetscheduler/__init__.py
 
-__version__ = "1.0.0"
+__version__ = "0.0.3"
 __author__ = "Carolina Gil Ribeiro"
 
 # Re-export public API from submodules
