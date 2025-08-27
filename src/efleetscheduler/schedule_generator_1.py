@@ -62,9 +62,17 @@ class ScheduleGenerator:
         # Define the directory where the notebook or script is located
         # Get the project root directory (two levels up from this file)
         project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-        csv_path = os.path.join(project_root, "data", "Input", "Energy_consumption_factor_2026.csv")
+        csv_path = env_config.get("consumption_factor_file")
+        if not csv_path:
+            raise ValueError("The 'consumption_factor_file' key must be provided in env_config.")
+        if not os.path.isabs(csv_path):
+            csv_path = os.path.join(project_root, csv_path)
         if not os.path.exists(csv_path):
             raise FileNotFoundError(f"CSV file not found: {csv_path}")
+        try:
+            df_consumption_factors = pd.read_csv(csv_path)
+        except Exception as e:
+            raise RuntimeError(f"Failed to read CSV file '{csv_path}': {e}")
         df_consumption_factors = pd.read_csv(csv_path)
 
         # Ensure 'date' column is in datetime format
