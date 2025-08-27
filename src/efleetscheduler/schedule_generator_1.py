@@ -5,6 +5,7 @@ import numpy as np
 import datetime as dt
 import time
 import os
+from pathlib import Path
 
 from .schedule_configure import ScheduleConfig, scheduletype, vehicletype, VehicleConfig, CompanyConfig, companytype
 
@@ -59,22 +60,27 @@ class ScheduleGenerator:
         self.vehicle_id = vehicle_id
         
         # Load the CSV file
-        # Define the directory where the notebook or script is located
-        # Get the project root directory (two levels up from this file)
-        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-        csv_path = env_config.get("consumption_factor_file")
-        if not csv_path:
-            raise ValueError("The 'consumption_factor_file' key must be provided in env_config.")
-        if not os.path.isabs(csv_path):
-            csv_path = os.path.join(project_root, csv_path)
-        if not os.path.exists(csv_path):
-            raise FileNotFoundError(f"CSV file not found: {csv_path}")
-        try:
-            df_consumption_factors = pd.read_csv(csv_path)
-        except Exception as e:
-            raise RuntimeError(f"Failed to read CSV file '{csv_path}': {e}")
-        df_consumption_factors = pd.read_csv(csv_path)
+        csv_hint = env_config.get("consumption_factor_file")
+        if not csv_hint or not str(csv_hint).strip():
+            raise ValueError(
+                "Defina env_config['consumption_factor_file'] com o caminho do CSV."
+            )
 
+        p = Path(csv_hint)
+
+        # Se for relativo, resolve a partir do diretório onde o notebook está a correr
+        if not p.is_absolute():
+            p = (Path.cwd() / p).resolve()
+
+        if not p.exists():
+            raise FileNotFoundError(f"CSV não encontrado: {p}")
+
+        try:
+            df_consumption_factors = pd.read_csv(p)
+        except Exception as e:
+            raise RuntimeError(f"Falha ao ler o CSV '{p}': {e}")
+        
+              
         # Ensure 'date' column is in datetime format
         df_consumption_factors['date'] = pd.to_datetime(df_consumption_factors['date'])
 
