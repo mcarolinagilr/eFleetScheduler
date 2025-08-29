@@ -22,7 +22,7 @@ class companytype(Enum):
     Highdistance = 8
     Generalcargo = 9
     Nogoods = 10
-    Costum = 11 # Custom company type, parameters will be set in the schedule generator
+    Custom = 11 # Custom company type, parameters will be set in the schedule generator
     
     
     
@@ -102,20 +102,20 @@ class ScheduleConfig:
         if schedule_type == schedule_type.Typec:
             
             #continuous schedule (with no stops in the middle of the day)
-            self.dep_mean_wd = sch_config["Costum Schedule"]["average departure weekday"]  # mean departure time weekday
-            self.dep_dev_wd = sch_config["Costum Schedule"]["std deviation departure weekday"]  # std deviation departure time weekday
-            self.ret_mean_wd = sch_config["Costum Schedule"]["average return weekday"]  # mean return time weekday
-            self.ret_dev_wd = sch_config["Costum Schedule"]["std deviation return weekday"]  # std deviation return time weekday
+            self.dep_mean_wd = sch_config["Custom Schedule"]["average departure weekday"]  # mean departure time weekday
+            self.dep_dev_wd = sch_config["Custom Schedule"]["std deviation departure weekday"]  # std deviation departure time weekday
+            self.ret_mean_wd = sch_config["Custom Schedule"]["average return weekday"]  # mean return time weekday
+            self.ret_dev_wd = sch_config["Custom Schedule"]["std deviation return weekday"]  # std deviation return time weekday
 
-            self.dep_mean_we = sch_config["Costum Schedule"]["average departure weekend"]  # mean departure time weekend
-            self.dep_dev_we = sch_config["Costum Schedule"]["std deviation departure weekend"]  # std deviation departure time weekend
-            self.ret_mean_we = sch_config["Costum Schedule"]["average return weekend"]  # mean return time weekend
-            self.ret_dev_we = sch_config["Costum Schedule"]["std deviation return weekend"]  # std deviation return time weekend
+            self.dep_mean_we = sch_config["Custom Schedule"]["average departure weekend"]  # mean departure time weekend
+            self.dep_dev_we = sch_config["Custom Schedule"]["std deviation departure weekend"]  # std deviation departure time weekend
+            self.ret_mean_we = sch_config["Custom Schedule"]["average return weekend"]  # mean return time weekend
+            self.ret_dev_we = sch_config["Custom Schedule"]["std deviation return weekend"]  # std deviation return time weekend
 
-            self.min_dep = sch_config["Costum Schedule"]["minimum departure"]
-            self.max_dep = sch_config["Costum Schedule"]["maximum departure"]
-            self.min_return_hour = sch_config["Costum Schedule"]["minimum return"]  # Return hour must be bigger or equal to this value
-            self.max_return_hour = sch_config["Costum Schedule"]["maximum return"]  # Return hour must be smaller or equal to this value                                        
+            self.min_dep = sch_config["Custom Schedule"]["minimum departure"]
+            self.max_dep = sch_config["Custom Schedule"]["maximum departure"]
+            self.min_return_hour = sch_config["Custom Schedule"]["minimum return"]  # Return hour must be bigger or equal to this value
+            self.max_return_hour = sch_config["Custom Schedule"]["maximum return"]  # Return hour must be smaller or equal to this value                                        
     
     
 class VehicleConfig:
@@ -277,17 +277,17 @@ class CompanyConfig:
             self.avg_stops = 3.4  # average number of stops per day 
             self.dev_stops = 0.4  # standard deviation of stops per day
             
-        if company_type == company_type.Costum:
+        if company_type == company_type.Custom:
             # Custom company type, parameters will be set in the schedule generator
-            self.avg_distance_wd = sch_config["Costum Distance"]["average weekday"]
-            self.dev_distance_wd = sch_config["Costum Distance"]["standard deviation weekday"]
-            self.avg_distance_we = sch_config["Costum Distance"]["average weekend"]
-            self.dev_distance_we = sch_config["Costum Distance"]["standard deviation weekend"] 
-            self.min_distance = sch_config["Costum Distance"]["min distance"] 
-            self.max_distance = sch_config["Costum Distance"]["max distance"] 
-            self.min_distance_per_hour = sch_config["Costum Distance"]["min distance per hour"]
-            self.max_distance_per_hour = sch_config["Costum Distance"]["max distance per hour"]
-            self.avg_stops = sch_config["Costum Distance"]["average stops"] 
-            self.dev_stops = sch_config["Costum Distance"]["standard deviation stops"] 
+            self.avg_distance_wd = sch_config["Custom Distance"]["average weekday"]
+            self.dev_distance_wd = sch_config["Custom Distance"]["standard deviation weekday"]
+            self.avg_distance_we = sch_config["Custom Distance"]["average weekend"]
+            self.dev_distance_we = sch_config["Custom Distance"]["standard deviation weekend"] 
+            self.min_distance = sch_config["Custom Distance"]["min distance"] 
+            self.max_distance = sch_config["Custom Distance"]["max distance"] 
+            self.min_distance_per_hour = sch_config["Custom Distance"]["min distance per hour"]
+            self.max_distance_per_hour = sch_config["Custom Distance"]["max distance per hour"]
+            self.avg_stops = sch_config["Custom Distance"]["average stops"] 
+            self.dev_stops = sch_config["Custom Distance"]["standard deviation stops"] 
             
             

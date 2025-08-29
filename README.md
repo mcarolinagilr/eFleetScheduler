@@ -15,7 +15,7 @@ You can use the entire tool by running the notebook:
 
 The software configuration is structured around four sections that manage the generation of schedules:
 
-Environement configuration (env_config):
+Environment configuration (env_config):
     - "original_seed" , is the seed for for random generation of schedulers 
     - "gen_start_date": "yyyy-mm-dd 00:00:00",  start date
     - "gen_end_date", end date
@@ -25,9 +25,9 @@ Environement configuration (env_config):
 
  Schedule generator configurations (sch_config): Define the parameters required to generate the travel and charging patterns for each vehicle in the LCV fleet.
     - "Vehicles number", is Number of vehicles in the fleet
-    - "Type of schedule": {"type a": n, "type b": n, "type c": n},  # Define the number of vehciles with each type of schedule in the fleet. (C is for costum and you need to enter the characteristic in Costum Schedule)
-    - "Type of vehicle": {"Renault": n, "Pegeaut": n},  # Renault or Peugeut
-    - "Company type": companytype.Costum, # Types of company: Distribution, LineHaul, CraftServWithGoods, CraftServWithoutGoods, Food, Mail, Building, Highdistance, Generalcargo, Nogoods, Costum
+    - "Type of schedule": {"type a": n, "type b": n, "type c": n},  # Define the number of vehciles with each type of schedule in the fleet. (C is for Custom and you need to enter the characteristic in Custom Schedule)
+    - "Type of vehicle": {"Renault": n, "Peugeot ": n},  # Renault or Peugeot 
+    - "Company type": companytype.Custom, # Types of company: Distribution, LineHaul, CraftServWithGoods, CraftServWithoutGoods, Food, Mail, Building, Highdistance, Generalcargo, Nogoods, Custom
     - "Schedule name", Name of the schedule
 
 

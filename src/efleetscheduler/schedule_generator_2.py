@@ -19,7 +19,7 @@ def generate_schedules(env_config, sch_config):
     n_typeb = sch_config["Type of schedule"]["type b"]
     n_typec = sch_config["Type of schedule"]["type c"]
     n_Renault = sch_config["Type of vehicle"]["Renault"]
-    n_Toyota =sch_config["Type of vehicle"]["Pegeaut"]
+    n_Toyota =sch_config["Type of vehicle"]["Peugeot "]
     schedule_name =sch_config["Schedule name"]
     company_type = sch_config["Company type"]
                    
