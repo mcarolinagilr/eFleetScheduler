@@ -33,4 +33,4 @@ Environment configuration (env_config):
 
 ## Citation
 If you use , please cite:
-Gil Ribeiro, C. (2025). eFleetScheduler V1.0.1 (V1.0.1). Zenodo. https://doi.org/10.5281/zenodo.16992450
+Gil Ribeiro, C. (2025). eFleetScheduler V1.0.2 (V1.0.2). Zenodo. https://doi.org/10.5281/zenodo.16992966
