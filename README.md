@@ -26,11 +26,11 @@ Environment configuration (env_config):
  Schedule generator configurations (sch_config): Define the parameters required to generate the travel and charging patterns for each vehicle in the LCV fleet.
     - "Vehicles number", is Number of vehicles in the fleet
     - "Type of schedule": {"type a": n, "type b": n, "type c": n},  # Define the number of vehciles with each type of schedule in the fleet. (C is for Custom and you need to enter the characteristic in Custom Schedule)
-    - "Type of vehicle": {"Renault": n, "Peugeot ": n},  # Renault or Peugeot 
+    - "Type of vehicle": {"Renault": n, "Toyota": n},  # Renault or Toyota
     - "Company type": companytype.Custom, # Types of company: Distribution, LineHaul, CraftServWithGoods, CraftServWithoutGoods, Food, Mail, Building, Highdistance, Generalcargo, Nogoods, Custom
     - "Schedule name", Name of the schedule
 
 
 ## Citation
 If you use , please cite:
-Gil Ribeiro, C. (2025). eFleetScheduler V1.0.1 (V1.0.1). Zenodo. https://doi.org/10.5281/zenodo.16992450
+Gil Ribeiro, C. (2025). eFleetScheduler V1.0.2 (V1.0.2). Zenodo. https://doi.org/10.5281/zenodo.16992966
