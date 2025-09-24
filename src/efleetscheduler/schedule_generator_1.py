@@ -81,7 +81,10 @@ class ScheduleGenerator:
             raise RuntimeError(f"Falha ao ler o CSV '{p}': {e}")
         
               
-        # Ensure 'date' column is in datetime format
+        # Ensure 'date' column exists; if not, use the first column as 'date'
+        if 'date' not in df_consumption_factors.columns:
+            first_col = df_consumption_factors.columns[0]
+            df_consumption_factors.rename(columns={first_col: 'date'}, inplace=True)
         df_consumption_factors['date'] = pd.to_datetime(df_consumption_factors['date'])
 
         # Set 'date' as the index for easier lookups
